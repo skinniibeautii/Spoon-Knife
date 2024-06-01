@@ -1,39 +1,20 @@
- on:
-  push:
-    branches:
-    - main
-    - release/*
-    
-    on:    
-  pull_request:
-    branches:
-    - main
-
-
-on:
-  schedule:
-  - cron: "0 2 * * 1-5"
-
- workflow_dispatch 
-  on:
-  workflow_dispatch:
-
-  runs-on:
-
-  jobs:
-  my_job:
-    name: deploy to staging
-    runs-on: ubuntu-22.04
-
-    ubuntu-latest, ubuntu-22.04, or ubuntu-20.04
-windows-latest, windows-2022, or windows-2019
-macos-latest, macos-13, or macos-12
-
-- name: Setup Node
-  uses: actions/setup-node@v4
+     - name: Cache
+  uses: actions/cache@v4.0.2
   with:
-    node-version: '20.x'
-
-    - name: Install Dependencies
-  run: npm install
-
+    # A list of files, directories, and wildcard patterns to cache and restore
+    path: 
+    # An explicit key for restoring and saving the cache
+    key: 
+    # An ordered list of keys to use for restoring stale cache if no cache hit occurred for key. Note `cache-hit` returns false in this case.
+    restore-keys: # optional
+    # The chunk size used to split up large files during upload, in bytes
+    upload-chunk-size: # optional
+    # An optional boolean when enabled, allows windows runners to save or restore caches that can be restored or saved respectively on other platforms
+    enableCrossOsArchive: # optional, default is false
+    # Fail the workflow if cache entry is not found
+    fail-on-cache-miss: # optional, default is false
+    # Check if a cache entry exists for the given input(s) (key, restore-keys) without downloading the cache
+    lookup-only: # optional, default is false
+    # Run the post step to save the cache even if another step before fails
+    save-always: # optional, default is false
+          
